@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --card-title-border-color: #338af3;
+    --card-color-primary: #338af3;
+}
+
 ul {
     list-style: none;
 }
@@ -32,16 +37,16 @@ header {
 }
 
 #cards {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .card {
     padding: 32px 23px;
     text-align: center;
     background: #1d1c19;
-    border-bottom: 2px solid #f7dd43;
+    border-bottom: 2px solid var(--card-color-primary);
     border-radius: 6px;
 }
 
@@ -51,16 +56,16 @@ header {
     justify-content: center;
     align-items: center;
     padding: 8px 16px;
-    border: 1px solid #746615;
+    border: 1px solid var(--card-title-border-color);
     border-radius: 6px;
     width: fit-content;
     margin-inline: auto;
     margin-bottom: 53px;
-    color: #f7dd43;
+    color: #82ccdd;
 }
 
 .card h2 span {
-    color: #e1e1e6;
+    color: #82ccdd;
     font-size: 14px;
     text-transform: uppercase;
 }
@@ -79,12 +84,30 @@ header {
 
 .card ul li + li {
     padding-top: 24px;
-    border-top: 1px solid #323238;
+    border-top: 1px solid #3c6382;
 }
 
 .card ul li strong {
     font-weight: 900;
     font-size: 36px;
     line-height: 125%;
-    color: #e1e1e6;
+    color: #dff9fb;
+}
+
+.card h2:hover,
+.card ul li:hover {
+    transform: scale(1.1);
+}
+
+.card h2,
+.card ul li {
+    transition: transform 0.3s;
+}
+
+@media (min-width: 900px) {
+    #cards {
+        max-width: 670px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
